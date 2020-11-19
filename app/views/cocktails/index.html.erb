@@ -1,0 +1,22 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= asset_path 'cocktails.jpg', alt: 'Cocktails' %>');">
+  <div class="container">
+    <h1><strong>Mister Cocktail </strong> - best cocktails ever!</h1>
+  </div>
+</div>
+
+<div class="container" class="d-flex-inline flex-wrap">
+  <h3>Our Cocktails</h3>
+  <div class="link">
+    <%= link_to 'Add a new Cocktail', new_cocktail_path, class: 'btn btn-outline-primary mr-3' %>
+  </div>
+</div>
+
+<div class="container">
+  <% @cocktails.each do |cocktail| %>
+    <div class="card p-2 m-2">
+      <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
+    </div>
+  <% end %>
+</div>
+
+
