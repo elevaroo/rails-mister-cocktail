@@ -4,19 +4,20 @@
   </div>
 </div>
 
-<div class="container" class="d-flex-inline flex-wrap">
+<div class="container d-flex justify-content-between mt-4">
   <h3>Our Cocktails</h3>
   <div class="link">
     <%= link_to 'Add a new Cocktail', new_cocktail_path, class: 'btn btn-outline-primary mr-3' %>
   </div>
 </div>
 
-<div class="container">
-  <% @cocktails.each do |cocktail| %>
-    <div class="card p-2 m-2">
-      <h3><%= link_to cocktail.name, cocktail_path(cocktail) %></h3>
-    </div>
+<div class="container d-flex flex-wrap">
+   <% @cocktails.each do |cocktail| %>
+    <%= link_to cocktail_path(cocktail), style: 'text-decoration: none; width: 25%' do%>
+      <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://source.unsplash.com/800x450/?<%= cocktail.name %>')">
+        <%= cocktail.name %>
+      </div>
+    <% end %>
   <% end %>
 </div>
-
 
